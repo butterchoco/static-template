@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Static Template</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+      attribute vec4 vPosition;
+      attribute vec4 vColor;
+      varying vec4 fColor;
+
+      void
+      main()
+      {
+          gl_Position = vPosition;
+          fColor = vColor;
+          gl_PointSize = 10.0;
+      }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+      precision mediump float;
+      varying vec4 fColor;
+
+      void
+      main()
+      {
+          gl_FragColor = fColor;
+      }
+    </script>
+    <title>UTS Grafika Komputer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="Common/initShaders.js"></script>
+    <script src="Common/webgl-utils.js"></script>
+    <script src="Common/MV.js"></script>
   </head>
+
   <body>
-    <h1>This is a static template, there is no bundler or bundling involved!</h1>
+    <!-- <audio id="myAudio">
+        <source src="sound.ogg" type="audio/ogg">
+        <source src="sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> -->
+    <img id="cursor" src="hammer.png" />
+    <div class="container">
+      <h1 class="hud score-text">Score: <span id="score">0</span></h1>
+      <h1 class="hud speed-text">Speed: <span id="speed">0</span></h1>
+      <h1 class="hud lives-text">Lives: <span id="lives">3</span></h1>
+      <canvas id="glCanvas" width="500" height="500"></canvas>
+    </div>
+    <div id="lose-modal" class="modal hide">
+      <p>YOU LOSE !!</p>
+      <button id="retry-game" class="btn">retry</button>
+    </div>
+    <div id="start-modal" class="modal show">
+      <p>Do you want to start the game ?</p>
+      <button id="new-game" class="btn">Start Now</button>
+    </div>
+
+    <script src="main.js"></script>
   </body>
 </html>

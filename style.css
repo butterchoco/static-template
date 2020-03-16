@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap");
+
+body,
+html {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+#cursor {
+  position: absolute;
+  z-index: 2;
+  transform-origin: center;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+* {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+canvas {
+  margin: auto;
+}
+
+body:active #cursor {
+  transform: rotate(-30deg);
+}
+
+.speed-text {
+  margin-top: 3rem;
+}
+
+.lives-text {
+  margin-top: 5rem;
+}
+
+.hud {
+  position: absolute;
+  z-index: 100;
+  color: #33a1fc;
+  left: 5%;
+  top: 5%;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #9ff14c, #33a1fc);
+  box-shadow: 0 10px 20px rgba(42, 46, 45, 0.2);
+  color: white;
+}
+
+#lose-modal {
+  background: linear-gradient(45deg, rgb(255, 71, 71), rgb(255, 125, 125));
+}
+
+#start-modal {
+  background: white;
+  color: black;
+}
+
+.modal {
+  box-shadow: 0 0 10px #222;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  color: #eee;
+  font-weight: bold;
+  font-size: 32px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
